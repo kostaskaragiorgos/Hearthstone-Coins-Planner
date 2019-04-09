@@ -8,7 +8,7 @@
 
 ## YOU NEED TO USE Hearthstone Coins Planner
 
-#HOW TO USE
+# HOW TO USE
 <ul>
   <li> press the button PLAN YOUR COINS </li>
   <li> answer the pop up questions </li>
