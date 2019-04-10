@@ -14,3 +14,6 @@
   <li> answer the pop up questions </li>
   <li> A pop up window will give you the answer you want </li>
   </ul>
+
+# What's New
+**A csv file that collects all your coin plans**
