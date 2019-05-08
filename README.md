@@ -8,10 +8,10 @@
 
 ## YOU NEED TO USE Hearthstone Coins Planner
 
-##Dependencies
+## Dependencies
 
  <ul>
-  <li> conda install -c anaconda csvkit </li>
+  <li> csv (conda install -c anaconda csvkit) </li>
 </ul>
 
 # HOW TO USE
