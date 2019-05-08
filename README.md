@@ -8,6 +8,12 @@
 
 ## YOU NEED TO USE Hearthstone Coins Planner
 
+##Dependencies
+
+ <ul>
+  <li> conda install -c anaconda csvkit </li>
+</ul>
+
 # HOW TO USE
 <ul>
   <li> press the button PLAN YOUR COINS </li>
