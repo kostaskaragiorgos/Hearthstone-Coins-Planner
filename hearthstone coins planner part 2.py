@@ -1,8 +1,10 @@
 import csv
 import os
 import tkinter as tk
+
 from tkinter import messagebox as msg 
 from tkinter import simpledialog
+
 class coin_planner(tk.Tk):
     def __init__(self):
         super().__init__()
