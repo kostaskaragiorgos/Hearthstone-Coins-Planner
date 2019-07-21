@@ -54,6 +54,7 @@ class coin_planner(tk.Tk):
         self.coinsget = simpledialog.askinteger("COINS REACH","How many coins do you want to reach?",parent=self , minvalue= self.coinshave+1)
         while self.coinsget is None:
             self.coinsget = simpledialog.askinteger("COINS REACH","How many coins do you want to reach?",parent=self , minvalue= self.coinshave+1)
+        self.coinsperday = simpledialog.askinteger("COINS PER DAY","How many coins do you get per day?",parent = self , minvalue  = 1 , maxvalue = self.coinsget-self.coinshave)
         while self.coinsperday is None:
             self.coinsperday = simpledialog.askinteger("COINS PER DAY","How many coins do you get per day?",parent = self , minvalue  = 1 , maxvalue = self.coinsget-self.coinshave)
         diff = self.coinsget - self.coinshave
