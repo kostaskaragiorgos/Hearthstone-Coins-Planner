@@ -5,7 +5,6 @@ import datetime
 import tkinter as tk
 import pandas as pd
 
-from datetime import date
 from tkinter import Menu
 from tkinter import messagebox as msg 
 from tkinter import simpledialog
@@ -19,7 +18,6 @@ class coin_planner(tk.Tk):
         self.resizable(False,False)
         now = datetime.date.today()
         self.daydiff =   datetime.date(2019,8,6) - now
-        print(self.daydiff.days)
         self.welcomeleb = tk.Label(self,text ="Welcome to hearthstone coin planner\n An app that helps you to plan ahead for the next hearthstone expansion")
         self.welcomeleb.pack()
         self.planyourcoins = tk.Button(self,text = "PLAN YOUR COINS",command = self.planc)
@@ -113,7 +111,7 @@ class coin_planner(tk.Tk):
     
         
     def difdays(self):
-        msg.showinfo("Release Date Difference","There are "+str(self.daydiff)+" days until the expansion release")
+        msg.showinfo("Release Date Difference","There are "+str(self.daydiff.days)+" days until the expansion release")
         
         
 if __name__ =="__main__":
