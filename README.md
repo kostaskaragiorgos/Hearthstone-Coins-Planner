@@ -23,4 +23,4 @@
   </ul>
 
 # What's New
-**A csv file that collects all your coin plans**
+**New you can also plan for the solo too**
