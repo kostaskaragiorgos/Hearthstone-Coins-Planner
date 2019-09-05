@@ -20,7 +20,12 @@
   <li> press the button PLAN YOUR COINS </li>
   <li> answer the pop up questions </li>
   <li> A pop up window will give you the answer you want </li>
-  </ul>
+</ul>
+
+**Current Version**
+
+<p><img src ="hearthstone.png" title = "Hearthstone Version"/> </p>
+  
 
 # What's New
 **New you can also plan for the solo too**
