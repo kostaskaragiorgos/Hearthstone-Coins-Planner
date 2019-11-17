@@ -30,13 +30,11 @@ class coin_planner(tk.Tk):
             with open('planning.csv', 'a+') as f:
                 thewriter = csv.writer(f)
                 thewriter.writerow(['COINS HAVE','COINS REACH','COINS PER DAY','DAYS NEEDED'])
-                f.close()
         
         if os.path.exists('soloplanning.csv') == False:
             with open('soloplanning.csv', 'a+') as e:
                 thewriter = csv.writer(e)
                 thewriter.writerow(['COINS HAVE','COINS TO REACH FOR 1 SOLO','COINS TO REACH FOR THE FULL SOLO', 'COINS PER DAY','DAYS NEEDED FOR 1 SOLO', 'DAYS NEEDED FOR THE FULL SOLO'])
-                e.close()
                 
         self.menu = Menu(self)
         
@@ -107,14 +105,14 @@ class coin_planner(tk.Tk):
             for row in reader:
                 if row[0] == str(self.coinshave) and row[1] == str(self.coinsget) and row[2] == str(self.coinsperday):
                     flagex = flagex+1
-            t.close()
+
             
             
         if flagex == 0:
             with open('planning.csv','a+') as d:
                 thewriter = csv.writer(d)
                 thewriter.writerow([str(self.coinshave),str(self.coinsget),str(self.coinsperday),str(diff//self.coinsperday)])
-                d.close()
+
     
     
     def soloplan(self):
