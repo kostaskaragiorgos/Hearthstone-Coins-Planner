@@ -28,4 +28,4 @@
   
 
 # What's New
-**New you can also plan for the solo too**
+**Now you can also plan for the solo too**
