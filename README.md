@@ -17,7 +17,7 @@
 
 # HOW TO USE
 <ul>
-  <li> press the button PLAN YOUR COINS </li>
+  <li> press the button PLAN YOUR COINS/PLAN YOUR SOLO</li>
   <li> answer the pop up questions </li>
   <li> A pop up window will give you the answer you want </li>
 </ul>
