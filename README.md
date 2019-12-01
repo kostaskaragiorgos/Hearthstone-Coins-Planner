@@ -15,7 +15,7 @@
   <li> pandas (conda install -c anaconda pandas) </li>
 </ul>
 
-# HOW TO USE
+## HOW TO USE
 <ul>
   <li> press the button PLAN YOUR COINS/PLAN YOUR SOLO</li>
   <li> answer the pop up questions </li>
@@ -25,6 +25,17 @@
 **Current Version**
 
 <p><img src ="hearthstone.png" title = "Hearthstone Version"/> </p>
+
+## Key binds
+<ul>
+ <li> Plan your coins (Ctrl + P)</li>
+ <li> Exit (Alt + F4) </li>
+ <li> Release Date (Ctrl + R) </li>
+ <li> Days from today (Ctrl + D) </li>
+ <li> Show Plans (Alt + P) </li>
+ <li> Help (Ctrl + F1) </li>
+ <li> About (Ctrl + I) </li>
+</ul>
   
 
 # What's New
