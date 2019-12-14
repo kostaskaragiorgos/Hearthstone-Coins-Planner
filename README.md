@@ -20,7 +20,7 @@
 <ul>
  <li> hearthstone coin planner.py(the main file) </li>
  <li> planning.csv(.csv file created by the main file) </li>
-<ul>
+</ul>
  
 ## HOW TO USE
 <ul>
