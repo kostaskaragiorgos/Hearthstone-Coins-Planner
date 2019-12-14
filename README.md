@@ -15,6 +15,13 @@
   <li> pandas (conda install -c anaconda pandas) </li>
 </ul>
 
+## FILES
+
+<ul>
+ <li> hearthstone coin planner.py(the main file) </li>
+ <li> planning.csv(.csv file created by the main file) </li>
+<ul>
+ 
 ## HOW TO USE
 <ul>
   <li> press the button PLAN YOUR COINS/PLAN YOUR SOLO</li>
