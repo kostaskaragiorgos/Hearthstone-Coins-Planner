@@ -1,13 +1,5 @@
 # Hearthstone-Coins-Planner
 
-## YOU PLAY HEARTHSTONE ?
-
-## YOU ARE PREPARING FOR THE NEXT EXPANSION?
-
-## YOU NEED TO KNOW THE DAYS YOU NEED TO PLAY TO OPEN 100 PACKS?
-
-## YOU NEED TO USE Hearthstone Coins Planner
-
 ## Dependencies
 
  <ul>
