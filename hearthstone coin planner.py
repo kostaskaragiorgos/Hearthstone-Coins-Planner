@@ -50,7 +50,7 @@ class coin_planner(tk.Tk):
         
         self.showplans = Menu(self.menu, tearoff = 0)
         self.showplans.add_command(label = "Show Plans",accelerator = 'Alt+P',command = self.showplan)
-        self.showplans.add_command(label = "Show Solo Plans",command = self.soloplan)
+        self.showplans.add_command(label = "Show Solo Plans",accelerator = 'Alt+S',command = self.soloplan)
         self.menu.add_cascade(label = "Show",menu =  self.showplans)
 
         self.help_menu = Menu(self.menu,tearoff = 0)
@@ -63,6 +63,7 @@ class coin_planner(tk.Tk):
         self.bind('<Control-F1>',lambda event:self.helpmenu())
         self.bind('<Control-i>',lambda event: self.aboutmenu())
         self.bind('<Control-p>',lambda event: self.planc())
+        self.bind('<Alt-s>',lambda event: self.soloplan())
         self.bind('<Control-r>',lambda event:self.rday())
         self.bind('<Control-d>',lambda event:self.difdays())
         self.bind('<Alt-p>',lambda event:self.showplan())
