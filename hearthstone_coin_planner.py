@@ -1,3 +1,6 @@
+"""
+helps you to plan your coins for the next hearthstone expansion and the solo run
+"""
 import csv
 import os
 import datetime
@@ -7,6 +10,7 @@ from tkinter import simpledialog
 import tkinter as tk
 import pandas as pd
 class coin_planner(tk.Tk):
+    """ coin_planner class """
     def __init__(self):
         super().__init__()
         self.title("HEARTHSTONE COIN PLANNER")
@@ -14,7 +18,7 @@ class coin_planner(tk.Tk):
         self.resizable(False, False)
         now = datetime.date.today()
         self.daydiff = datetime.date(2019, 8, 6) - now
-        self.welcomeleb = tk.Label(self, text = "Welcome to hearthstone coin planner\n An app that helps you to plan ahead for the next hearthstone expansion")
+        self.welcomeleb = tk.Label(self, text="Welcome to hearthstone coin planner\n An app that helps you to plan ahead for the next hearthstone expansion")
         self.welcomeleb.pack()
         self.planyourcoins = tk.Button(self, text="PLAN YOUR COINS", command=self.planc)
         self.planyourcoins.pack()
@@ -47,22 +51,23 @@ class coin_planner(tk.Tk):
         self.menu.add_cascade(label="Help", menu=self.help_menu)
         self.config(menu=self.menu)
         self.bind('<Alt-F4>', lambda event: self.exitmenu())
-        self.bind('<Control-F1>', lambda event:self.helpmenu())
+        self.bind('<Control-F1>', lambda event: self.helpmenu())
         self.bind('<Control-i>', lambda event: self.aboutmenu())
         self.bind('<Control-p>', lambda event: self.planc())
         self.bind('<Alt-s>', lambda event: self.soloplan())
-        self.bind('<Control-r>', lambda event:self.rday())
-        self.bind('<Control-d>', lambda event:self.difdays())
-        self.bind('<Alt-p>', lambda event:self.showplan())
+        self.bind('<Control-r>', lambda event: self.rday())
+        self.bind('<Control-d>', lambda event: self.difdays())
+        self.bind('<Alt-p>', lambda event: self.showplan())
     def plansolo(self):
+        """ plan for the solo"""
         self.solo1 = 700
         self.solototal = 700*4
-        self.coinshavesolo = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent = self,minvalue = 0)
+        self.coinshavesolo = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)
         while self.coinshavesolo is None:
-            self.coinshavesolo = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent = self,minvalue = 0)
-        self.solocoinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent = self, minvalue  = 1, maxvalue = 1000)
+            self.coinshavesolo = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)
+        self.solocoinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent = self, minvalue=1, maxvalue=1000)
         while self.solocoinsperday is None:
-            self.solocoinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent = self, minvalue  = 1, maxvalue = 1000)
+            self.solocoinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=1000)
         diffsolo1 = self.solo1 - self.coinshavesolo
         msg.showinfo("DAYS YOU NEED", "You need "+str(diffsolo1//self.solocoinsperday)+" days to get "+str(self.solo1)+" from "+str(self.coinshavesolo)+" earning " +str(self.solocoinsperday)+" coins per day.")
     def planc(self):
@@ -72,7 +77,7 @@ class coin_planner(tk.Tk):
         self.coinsget = simpledialog.askinteger("COINS REACH", "How many coins do you want to reach?", parent=self, minvalue=self.coinshave+1)
         while self.coinsget is None:
             self.coinsget = simpledialog.askinteger("COINS REACH", "How many coins do you want to reach?", parent=self, minvalue=self.coinshave+1)
-        self.coinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent = self, minvalue=1, maxvalue=self.coinsget-self.coinshave)
+        self.coinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=self.coinsget-self.coinshave)
         while self.coinsperday is None:
             self.coinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=self.coinsget-self.coinshave)
         diff = self.coinsget - self.coinshave
@@ -95,19 +100,24 @@ class coin_planner(tk.Tk):
         df = df.drop_duplicates(keep="first")
         msg.showinfo("COIN PLANS", str(df))
     def exitmenu(self):
+        """ exit menu function """
         if msg.askokcancel("Quit?", "Really quit?"):
             self.destroy()
     def helpmenu(self):
+        """ help menu function"""
         msg.showinfo("Help", "Hearthstone coin planner help\n 1.Press the button PLAN YOUR COINS\n 2. Answer all the pop up questions \n 3. A pop up window will give you the answer you want. \n 4. Every plan is saved to a csv file")
     def aboutmenu(self):
+        """ about menu function """
         msg.showinfo("About HEARTHSTONE COIN PLANNER 2.0", "Hearthstone Coin Planner\n"+"Version: 2.0\n"+"Credits:Kostas karagiorgos\n"
                      +"Hearthstone is a card game from Blizzard\n"+"Hearthstone official site:https://playhearthstone.com/en-us/")
     def rday(self):
+        """ the release date of the expansion """
         if self.daydiff.days < 0:
             msg.showinfo("Release Date", "The new expansion has not been announced")
         else:
             msg.showinfo("NEXT EXPANSION RELEASE DATE", "THE NEXT EXPANSION SAVIORS OF ULDUM WILL BE LIVE AT 06/09/2019")
     def difdays(self):
+        """ release date difference"""
         if self.daydiff.days < 0:
             msg.showinfo("Release Date", "The new expansion has not been announced")
         else:
