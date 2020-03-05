@@ -9,6 +9,21 @@ from tkinter import messagebox as msg
 from tkinter import simpledialog
 import tkinter as tk
 import pandas as pd
+def soloplan():
+    df = pd.read_csv('soloplanning.csv')
+    df = df.drop_duplicates(keep="first")
+    msg.showinfo("SOLO PLANS", str(df))
+def showplan():
+    df = pd.read_csv('planning.csv')
+    df = df.drop_duplicates(keep="first")
+    msg.showinfo("COIN PLANS", str(df))
+def helpmenu():
+    """ help menu function"""
+    msg.showinfo("Help", "Hearthstone coin planner help\n 1.Press the button PLAN YOUR COINS\n 2. Answer all the pop up questions \n 3. A pop up window will give you the answer you want. \n 4. Every plan is saved to a csv file")
+def aboutmenu():
+    """ about menu function """
+    msg.showinfo("About HEARTHSTONE COIN PLANNER 2.0", "Hearthstone Coin Planner\n"+"Version: 2.0\n"+"Credits:Kostas karagiorgos\n"
+                 +"Hearthstone is a card game from Blizzard\n"+"Hearthstone official site:https://playhearthstone.com/en-us/")
 class coin_planner(tk.Tk):
     """ coin_planner class """
     def __init__(self):
@@ -42,22 +57,22 @@ class coin_planner(tk.Tk):
         self.nextexpansion.add_command(label="Days from today", accelerator='Ctrl+D', command=self.difdays)
         self.menu.add_cascade(label="Expansion", menu=self.nextexpansion)
         self.showplans = Menu(self.menu, tearoff=0)
-        self.showplans.add_command(label="Show Plans", accelerator='Alt+P', command=self.showplan)
-        self.showplans.add_command(label="Show Solo Plans", accelerator='Alt+S', command=self.soloplan)
+        self.showplans.add_command(label="Show Plans", accelerator='Alt+P', command=showplan)
+        self.showplans.add_command(label="Show Solo Plans", accelerator='Alt+S', command=soloplan)
         self.menu.add_cascade(label="Show", menu=self.showplans)
         self.help_menu = Menu(self.menu, tearoff=0)
-        self.help_menu.add_command(label="Help", accelerator='Ctrl+F1', command=self.helpmenu)
-        self.help_menu.add_command(label="About", accelerator='Ctrl+I', command=self.aboutmenu)
+        self.help_menu.add_command(label="Help", accelerator='Ctrl+F1', command=helpmenu)
+        self.help_menu.add_command(label="About", accelerator='Ctrl+I', command=aboutmenu)
         self.menu.add_cascade(label="Help", menu=self.help_menu)
         self.config(menu=self.menu)
         self.bind('<Alt-F4>', lambda event: self.exitmenu())
-        self.bind('<Control-F1>', lambda event: self.helpmenu())
-        self.bind('<Control-i>', lambda event: self.aboutmenu())
+        self.bind('<Control-F1>', lambda event: helpmenu())
+        self.bind('<Control-i>', lambda event: aboutmenu())
         self.bind('<Control-p>', lambda event: self.planc())
-        self.bind('<Alt-s>', lambda event: self.soloplan())
+        self.bind('<Alt-s>', lambda event: soloplan())
         self.bind('<Control-r>', lambda event: self.rday())
         self.bind('<Control-d>', lambda event: self.difdays())
-        self.bind('<Alt-p>', lambda event: self.showplan())
+        self.bind('<Alt-p>', lambda event: showplan())
     def plansolo(self):
         """ plan for the solo"""
         self.solo1 = 700
@@ -89,25 +104,10 @@ class coin_planner(tk.Tk):
         with open('planning.csv', 'a+') as d:
             thewriter = csv.writer(d)
             thewriter.writerow([str(self.coinshave), str(self.coinsget), str(self.coinsperday), str((self.coinsget - self.coinshave)//self.coinsperday)])
-    def soloplan(self):
-        df = pd.read_csv('soloplanning.csv')
-        df = df.drop_duplicates(keep="first")
-        msg.showinfo("SOLO PLANS", str(df))
-    def showplan(self):
-        df = pd.read_csv('planning.csv')
-        df = df.drop_duplicates(keep="first")
-        msg.showinfo("COIN PLANS", str(df))
     def exitmenu(self):
         """ exit menu function """
         if msg.askokcancel("Quit?", "Really quit?"):
             self.destroy()
-    def helpmenu(self):
-        """ help menu function"""
-        msg.showinfo("Help", "Hearthstone coin planner help\n 1.Press the button PLAN YOUR COINS\n 2. Answer all the pop up questions \n 3. A pop up window will give you the answer you want. \n 4. Every plan is saved to a csv file")
-    def aboutmenu(self):
-        """ about menu function """
-        msg.showinfo("About HEARTHSTONE COIN PLANNER 2.0", "Hearthstone Coin Planner\n"+"Version: 2.0\n"+"Credits:Kostas karagiorgos\n"
-                     +"Hearthstone is a card game from Blizzard\n"+"Hearthstone official site:https://playhearthstone.com/en-us/")
     def rday(self):
         """ the release date of the expansion """
         if self.daydiff.days < 0:
