@@ -80,16 +80,15 @@ class coin_planner(tk.Tk):
         self.coinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=self.coinsget-self.coinshave)
         while self.coinsperday is None:
             self.coinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=self.coinsget-self.coinshave)
-        diff = self.coinsget - self.coinshave
-        if self.daydiff.days > 0 and diff > self.daydiff:
-            msg.showinfo("DAYS YOU NEED", "You need "+str(diff//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.You will not be able to collect the coins you want on time for the new expansion.")
-        elif self.daydiff.days > 0 and diff > self.daydiff:
-            msg.showinfo("DAYS YOU NEED", "You need "+str(diff//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.You will be able to collect the coins you want on time for the new expansion.")
+        if self.daydiff.days > 0 and (self.coinsget - self.coinshave) > self.daydiff:
+            msg.showinfo("DAYS YOU NEED", "You need "+str((self.coinsget - self.coinshave)//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.You will not be able to collect the coins you want on time for the new expansion.")
+        elif self.daydiff.days > 0 and  (self.coinsget - self.coinshave) > self.daydiff:
+            msg.showinfo("DAYS YOU NEED", "You need "+str((self.coinsget - self.coinshave)//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.You will be able to collect the coins you want on time for the new expansion.")
         else:
-            msg.showinfo("DAYS YOU NEED", "You need "+str(diff//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.")
-            with open('planning.csv', 'a+') as d:
-                thewriter = csv.writer(d)
-                thewriter.writerow([str(self.coinshave), str(self.coinsget), str(self.coinsperday), str(diff//self.coinsperday)])
+            msg.showinfo("DAYS YOU NEED", "You need "+str((self.coinsget - self.coinshave)//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.")
+        with open('planning.csv', 'a+') as d:
+            thewriter = csv.writer(d)
+            thewriter.writerow([str(self.coinshave), str(self.coinsget), str(self.coinsperday), str((self.coinsget - self.coinshave)//self.coinsperday)])
     def soloplan(self):
         df = pd.read_csv('soloplanning.csv')
         df = df.drop_duplicates(keep="first")
