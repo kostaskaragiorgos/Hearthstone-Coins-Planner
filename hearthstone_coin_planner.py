@@ -66,7 +66,6 @@ class coin_planner(tk.Tk):
         diffsolo1 = self.solo1 - self.coinshavesolo
         msg.showinfo("DAYS YOU NEED", "You need "+str(diffsolo1//self.solocoinsperday)+" days to get "+str(self.solo1)+" from "+str(self.coinshavesolo)+" earning " +str(self.solocoinsperday)+" coins per day.")
     def planc(self):
-        flagex = 0
         self.coinshave = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)
         while self.coinshave is None:
             self.coinshave = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)   
@@ -84,20 +83,16 @@ class coin_planner(tk.Tk):
                 msg.showinfo("DAYS YOU NEED", "You need "+str(diff//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.You will be able to collect the coins you want on time for the new expansion.")
         else:
             msg.showinfo("DAYS YOU NEED", "You need "+str(diff//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.")
-        with open('planning.csv','r') as t:
-            reader = csv.reader(t)
-            for row in reader:
-                if row[0] == str(self.coinshave) and row[1] == str(self.coinsget) and row[2] == str(self.coinsperday):
-                    flagex = flagex+1
-        if flagex == 0:
             with open('planning.csv', 'a+') as d:
                 thewriter = csv.writer(d)
                 thewriter.writerow([str(self.coinshave), str(self.coinsget), str(self.coinsperday), str(diff//self.coinsperday)])
     def soloplan(self):
         df = pd.read_csv('soloplanning.csv')
+        df = df.drop_duplicates(keep="first")
         msg.showinfo("SOLO PLANS", str(df))
     def showplan(self):
         df = pd.read_csv('planning.csv')
+        df = df.drop_duplicates(keep="first")
         msg.showinfo("COIN PLANS", str(df))
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
