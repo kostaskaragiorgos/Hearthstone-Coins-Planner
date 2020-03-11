@@ -3,6 +3,21 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
 
+# Table of contents
+
+<!--ts-->
+  * [Hearthstone-Coins-Planner](#Hearthstone-Coins-Planner)
+  * [Table of contents](#Table_of_contents)
+  * [Dependencies](#Dependencies)
+  * [Files](#FILES)
+  * [HOW TO USE](#HOW_TO_USE)
+  * [Current Version](#Current_Version)
+  * [Keybinds](#Keybinds)
+  * [What's New](#What's_New)
+  * [License](#License)
+<!--te-->
+
+
 ## Dependencies
 
  <ul>
@@ -19,18 +34,18 @@
  <li> planning.csv(.csv file created by the main file) </li>
 </ul>
  
-## HOW TO USE
+## HOW_TO_USE
 <ul>
   <li> press the button PLAN YOUR COINS/PLAN YOUR SOLO</li>
   <li> answer the pop up questions </li>
   <li> A pop up window will give you the answer you want </li>
 </ul>
 
-**Current Version**
+## Current_Version
 
 <p><img src ="hearthstone.png" title = "Hearthstone Version"/> </p>
 
-## Key binds
+## Keybinds
 <ul>
  <li> Plan your coins (Ctrl + P)</li>
  <li> Exit (Alt + F4) </li>
@@ -42,7 +57,7 @@
 </ul>
   
 
-# What's New
+## What's_New
 **Now you can also plan for the solo too**
 
 
