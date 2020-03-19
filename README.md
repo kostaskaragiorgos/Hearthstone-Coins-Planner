@@ -8,17 +8,23 @@
 <!--ts-->
   * [Hearthstone-Coins-Planner](#Hearthstone-Coins-Planner)
   * [Table of contents](#Table_of_contents)
+  * [Files](#Files)
   * [Dependencies](#Dependencies)
-  * [Files](#FILES)
-  * [HOW TO USE](#HOW_TO_USE)
+  * [How to use](#How_to_use)
   * [Current Version](#Current_Version)
   * [Keybinds](#Keybinds)
   * [What's New](#What's_New)
   * [License](#License)
 <!--te-->
 
+# Files
 
-## Dependencies
+<ul>
+ <li> hearthstone coin planner.py(the main file) </li>
+ <li> planning.csv(.csv file created by the main file) </li>
+</ul>
+
+# Dependencies
 
  <ul>
   <li> csv (conda install -c anaconda csvkit) </li>
@@ -27,25 +33,19 @@
   <li> second way to install pandas ( pip install pandas) </li>
 </ul>
 
-## FILES
-
-<ul>
- <li> hearthstone coin planner.py(the main file) </li>
- <li> planning.csv(.csv file created by the main file) </li>
-</ul>
  
-## HOW_TO_USE
+# How_to_use
 <ul>
   <li> press the button PLAN YOUR COINS/PLAN YOUR SOLO</li>
   <li> answer the pop up questions </li>
   <li> A pop up window will give you the answer you want </li>
 </ul>
 
-## Current_Version
+# Current_Version
 
 <p><img src ="hearthstone.png" title = "Hearthstone Version"/> </p>
 
-## Keybinds
+# Keybinds
 <ul>
  <li> Plan your coins (Ctrl + P)</li>
  <li> Exit (Alt + F4) </li>
@@ -57,10 +57,10 @@
 </ul>
   
 
-## What's_New
+# What's_New
 **Now you can also plan for the solo too**
 
 
 
-## License
+# License
 [GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
