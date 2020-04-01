@@ -35,7 +35,7 @@ class coin_planner(tk.Tk):
         self.daydiff = datetime.date(2019, 8, 6) - now
         self.welcomeleb = tk.Label(self, text="Welcome to hearthstone coin planner\n An app that helps you to plan ahead for the next hearthstone expansion")
         self.welcomeleb.pack()
-        self.planyourcoins = tk.Button(self, text="PLAN YOUR COINS", command=self.planc)
+        self.planyourcoins = tk.Button(self, text="PLAN YOUR COINS", command=self.coin_plan)
         self.planyourcoins.pack()
         self.planyoursolo = tk.Button(self, text="PLAN YOUR SOLO", command=self.plansolo)
         self.planyoursolo.pack()
@@ -49,7 +49,7 @@ class coin_planner(tk.Tk):
                 thewriter.writerow(['COINS HAVE', 'COINS TO REACH FOR 1 SOLO', 'COINS TO REACH FOR THE FULL SOLO', 'COINS PER DAY', 'DAYS NEEDED FOR 1 SOLO', 'DAYS NEEDED FOR THE FULL SOLO'])
         self.menu = Menu(self)
         self.file_menu = Menu(self.menu, tearoff=0)
-        self.file_menu.add_command(label="Plan your coins", accelerator='Ctrl+P', command=self.planc)
+        self.file_menu.add_command(label="Plan your coins", accelerator='Ctrl+P', command=self.coin_plan)
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.nextexpansion = Menu(self.menu, tearoff=0)
@@ -68,7 +68,7 @@ class coin_planner(tk.Tk):
         self.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.bind('<Control-F1>', lambda event: helpmenu())
         self.bind('<Control-i>', lambda event: aboutmenu())
-        self.bind('<Control-p>', lambda event: self.planc())
+        self.bind('<Control-p>', lambda event: self.coin_plan())
         self.bind('<Alt-s>', lambda event: soloplan())
         self.bind('<Control-r>', lambda event: self.rday())
         self.bind('<Control-d>', lambda event: self.difdays())
@@ -85,7 +85,7 @@ class coin_planner(tk.Tk):
             self.solocoinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=1000)
         diffsolo1 = self.solo1 - self.coinshavesolo
         msg.showinfo("DAYS YOU NEED", "You need "+str(diffsolo1//self.solocoinsperday)+" days to get "+str(self.solo1)+" from "+str(self.coinshavesolo)+" earning " +str(self.solocoinsperday)+" coins per day.")
-    def planc(self):
+    def coin_plan_user_input(self):
         self.coinshave = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)
         while self.coinshave is None:
             self.coinshave = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)   
@@ -95,6 +95,8 @@ class coin_planner(tk.Tk):
         self.coinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=self.coinsget-self.coinshave)
         while self.coinsperday is None:
             self.coinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=self.coinsget-self.coinshave)
+    def coin_plan(self):
+        self.coin_plan_user_input()
         if self.daydiff.days > 0 and (self.coinsget - self.coinshave) > self.daydiff:
             msg.showinfo("DAYS YOU NEED", "You need "+str((self.coinsget - self.coinshave)//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.You will not be able to collect the coins you want on time for the new expansion.")
         elif self.daydiff.days > 0 and  (self.coinsget - self.coinshave) > self.daydiff:
