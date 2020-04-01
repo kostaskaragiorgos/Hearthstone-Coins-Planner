@@ -43,7 +43,7 @@
 
 # Current_Version
 
-<p><img src ="hearthstone.png" title = "Hearthstone Version"/> </p>
+<p><img src ="images/hearthstone.png" title = "Hearthstone Version"/> </p>
 
 # Keybinds
 <ul>
