@@ -10,16 +10,18 @@
   * [Table of contents](#Table_of_contents)
   * [Files](#Files)
   * [Dependencies](#Dependencies)
-  * [How to use](#How_to_use)
   * [Current Version](#Current_Version)
+  * [Documentation](#Documentation)
   * [Keybinds](#Keybinds)
   * [What's New](#What's_New)
   * [License](#License)
 <!--te-->
 
-# Files
+# Files/Folders
 
 <ul>
+ <li> doc (documentation folder) </li>
+ <li> images (images folder) </li> 
  <li> hearthstone coin planner.py(the main file) </li>
  <li> planning.csv(.csv file created by the main file) </li>
 </ul>
@@ -33,17 +35,13 @@
   <li> second way to install pandas ( pip install pandas) </li>
 </ul>
 
- 
-# How_to_use
-<ul>
-  <li> press the button PLAN YOUR COINS/PLAN YOUR SOLO</li>
-  <li> answer the pop up questions </li>
-  <li> A pop up window will give you the answer you want </li>
-</ul>
-
 # Current_Version
 
 <p><img src ="images/hearthstone.png" title = "Hearthstone Version"/> </p>
+
+# Documentation
+
+All project documentation is located in the `./doc`  folder.
 
 # Keybinds
 <ul>
