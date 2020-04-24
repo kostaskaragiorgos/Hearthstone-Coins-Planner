@@ -8,10 +8,15 @@
 <!--ts-->
   * [Hearthstone-Coins-Planner](#Hearthstone-Coins-Planner)
   * [Table of contents](#Table_of_contents)
-  * [Files](#Files)
+  * [Files/Folders](#Files/Folders)
   * [Dependencies](#Dependencies)
   * [Current Version](#Current_Version)
   * [Documentation](#Documentation)
+  * [Radon](#Radon)
+    * [Radon_cc](#Radon_cc)
+    * [Radon_hal](#Radon_hal)
+    * [Radon_mi](#Radon_mi)
+    * [Radon_raw](#Radon_raw)
   * [Keybinds](#Keybinds)
   * [What's New](#What's_New)
   * [License](#License)
@@ -45,9 +50,20 @@ All project documentation is located in the `./doc`  folder.
 
 # Radon
 
+## Radon_cc
+
 <p><img src ="images/hearthstone coin planner radon cc.png" title = "Hearthstone coin planner Radon cc"/> </p>
+
+## Radon_hal
+
 <p><img src ="images/hearthstone coin planner radon hal.png" title = "Hearthstone coin planner Radon hal"/> </p>
+
+## Radon_m1
+
 <p><img src ="images/hearthstone coin planner radon mi.png" title = "Hearthstone coin planner mi"/> </p>
+
+## Radon_raw
+
 <p><img src ="images/hearthstone coin planner radon raw.png" title = "Hearthstone coin planner Radon raw"/> </p>
 
 # Keybinds
