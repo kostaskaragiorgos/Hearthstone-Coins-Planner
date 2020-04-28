@@ -27,6 +27,7 @@
 <ul>
  <li> doc (documentation folder) </li>
  <li> images (images folder) </li> 
+ <li> Hearthstone_coin_planner_keybinds.txt (keybinds file) </li>
  <li> hearthstone coin planner.py(the main file) </li>
  <li> planning.csv(.csv file created by the main file) </li>
 </ul>
@@ -58,7 +59,7 @@ All project documentation is located in the `./doc`  folder.
 
 <p><img src ="images/hearthstone coin planner radon hal.png" title = "Hearthstone coin planner Radon hal"/> </p>
 
-## Radon_m1
+## Radon_mi
 
 <p><img src ="images/hearthstone coin planner radon mi.png" title = "Hearthstone coin planner mi"/> </p>
 
