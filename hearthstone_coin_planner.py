@@ -99,14 +99,15 @@ class coin_planner(tk.Tk):
         with open('planning.csv', 'a+') as d:
             thewriter = csv.writer(d)
             thewriter.writerow([str(self.coinshave), str(self.coinsget), str(self.coinsperday), str((self.coinsget - self.coinshave)//self.coinsperday)])
-    def coin_plan(self):
-        self.coin_plan_user_input()
-        if self.daydiff.days > 0 and (self.coinsget - self.coinshave) > self.daydiff:
-            msg.showinfo("DAYS YOU NEED", "You need "+str((self.coinsget - self.coinshave)//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.You will not be able to collect the coins you want on time for the new expansion.")
-        elif self.daydiff.days > 0 and  (self.coinsget - self.coinshave) > self.daydiff:
-            msg.showinfo("DAYS YOU NEED", "You need "+str((self.coinsget - self.coinshave)//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.You will be able to collect the coins you want on time for the new expansion.")
+    def coin_plan_pop_up(self):
+        if self.daydiff.days > 0:
+            if  (self.coinsget - self.coinshave) > self.daydiff:
+                msg.showinfo("DAYS YOU NEED", "You need "+str((self.coinsget - self.coinshave)//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.You will not be able to collect the coins you want on time for the new expansion.")
         else:
             msg.showinfo("DAYS YOU NEED", "You need "+str((self.coinsget - self.coinshave)//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.")
+    def coin_plan(self):
+        self.coin_plan_user_input()
+        self.coin_plan_pop_up()
         self.coin_plan_file_save()
     def exitmenu(self):
         """ exit menu function """
