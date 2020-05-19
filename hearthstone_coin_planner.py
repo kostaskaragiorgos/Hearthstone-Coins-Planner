@@ -85,16 +85,22 @@ class coin_planner(tk.Tk):
             self.solocoinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=1000)
         diffsolo1 = self.solo1 - self.coinshavesolo
         msg.showinfo("DAYS YOU NEED", "You need "+str(diffsolo1//self.solocoinsperday)+" days to get "+str(self.solo1)+" from "+str(self.coinshavesolo)+" earning " +str(self.solocoinsperday)+" coins per day.")
-    def coin_plan_user_input(self):
+    def coins_have_user_input(self):
         self.coinshave = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)
         while self.coinshave is None:
             self.coinshave = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)   
+    def coins_get_user_input(self):
         self.coinsget = simpledialog.askinteger("COINS REACH", "How many coins do you want to reach?", parent=self, minvalue=self.coinshave+1)
         while self.coinsget is None:
             self.coinsget = simpledialog.askinteger("COINS REACH", "How many coins do you want to reach?", parent=self, minvalue=self.coinshave+1)
+    def coins_per_day_user_input(self):
         self.coinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=self.coinsget-self.coinshave)
         while self.coinsperday is None:
             self.coinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=self.coinsget-self.coinshave)
+    def coin_plan_user_input(self):
+        self.coins_have_user_input()
+        self.coins_get_user_input()
+        self.coins_per_day_user_input()
     def coin_plan_file_save(self):
         with open('planning.csv', 'a+') as d:
             thewriter = csv.writer(d)
