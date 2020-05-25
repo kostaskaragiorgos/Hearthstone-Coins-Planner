@@ -21,11 +21,18 @@ def showplan():
     msg.showinfo("COIN PLANS", str(df))
 def helpmenu():
     """ help menu function"""
-    msg.showinfo("Help", "Hearthstone coin planner help\n 1.Press the button PLAN YOUR COINS\n 2. Answer all the pop up questions \n 3. A pop up window will give you the answer you want. \n 4. Every plan is saved to a csv file")
+    msg.showinfo("Help", "Hearthstone coin planner help\n"+
+                 "1.Press the button PLAN YOUR COINS\n "+
+                 "2. Answer all the pop up questions \n"+
+                 "3. A pop up window will give you the answer you want. \n"+
+                 " 4. Every plan is saved to a csv file")
 def aboutmenu():
     """ about menu function """
-    msg.showinfo("About HEARTHSTONE COIN PLANNER 2.0", "Hearthstone Coin Planner\n"+"Version: 2.0\n"+"Credits:Kostas karagiorgos\n"
-                 +"Hearthstone is a card game from Blizzard\n"+"Hearthstone official site:https://playhearthstone.com/en-us/")
+    msg.showinfo("About HEARTHSTONE COIN PLANNER 2.0",
+                 "Hearthstone Coin Planner\n"+
+                 "Version: 2.0\n"+"Credits:Kostas karagiorgos\n"
+                 +"Hearthstone is a card game from Blizzard\n"+
+                 "Hearthstone official site:https://playhearthstone.com/en-us/")
 class coin_planner(tk.Tk):
     """ coin_planner class """
     def __init__(self):
