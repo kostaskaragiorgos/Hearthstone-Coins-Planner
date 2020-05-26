@@ -42,7 +42,9 @@ class coin_planner(tk.Tk):
         self.resizable(False, False)
         now = datetime.date.today()
         self.daydiff = datetime.date(2019, 8, 6) - now
-        self.welcomeleb = tk.Label(self, text="Welcome to hearthstone coin planner\n An app that helps you to plan ahead for the next hearthstone expansion")
+        self.welcomeleb = tk.Label(self, text="Welcome to hearthstone coin planner\n"+
+                                   "An app that helps you to plan ahead for the next"+
+                                   "hearthstone expansion")
         self.welcomeleb.pack()
         self.planyourcoins = tk.Button(self, text="PLAN YOUR COINS", command=self.coin_plan)
         self.planyourcoins.pack()
@@ -55,15 +57,23 @@ class coin_planner(tk.Tk):
         if not os.path.exists('soloplanning.csv'):
             with open('soloplanning.csv', 'a+') as e:
                 thewriter = csv.writer(e)
-                thewriter.writerow(['COINS HAVE', 'COINS TO REACH FOR 1 SOLO', 'COINS TO REACH FOR THE FULL SOLO', 'COINS PER DAY', 'DAYS NEEDED FOR 1 SOLO', 'DAYS NEEDED FOR THE FULL SOLO'])
+                thewriter.writerow(['COINS HAVE',
+                                    'COINS TO REACH FOR 1 SOLO',
+                                    'COINS TO REACH FOR THE FULL SOLO',
+                                    'COINS PER DAY',
+                                    'DAYS NEEDED FOR 1 SOLO',
+                                    'DAYS NEEDED FOR THE FULL SOLO'])
         self.menu = Menu(self)
         self.file_menu = Menu(self.menu, tearoff=0)
-        self.file_menu.add_command(label="Plan your coins", accelerator='Ctrl+P', command=self.coin_plan)
+        self.file_menu.add_command(label="Plan your coins",
+                                   accelerator='Ctrl+P', command=self.coin_plan)
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.nextexpansion = Menu(self.menu, tearoff=0)
-        self.nextexpansion.add_command(label="Release Date", accelerator='Ctrl+R', command=self.rday)
-        self.nextexpansion.add_command(label="Days from today", accelerator='Ctrl+D', command=self.difdays)
+        self.nextexpansion.add_command(label="Release Date",
+                                       accelerator='Ctrl+R', command=self.rday)
+        self.nextexpansion.add_command(label="Days from today",
+                                       accelerator='Ctrl+D', command=self.difdays)
         self.menu.add_cascade(label="Expansion", menu=self.nextexpansion)
         self.showplans = Menu(self.menu, tearoff=0)
         self.showplans.add_command(label="Show Plans", accelerator='Alt+P', command=showplan)
@@ -86,17 +96,36 @@ class coin_planner(tk.Tk):
         """ plan for the solo"""
         self.solo1 = 700
         self.solototal = 700*4
-        self.coinshavesolo = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)
+        self.coinshavesolo = simpledialog.askinteger("COINS HAVE",
+                                                     "How many coins do you have?",
+                                                     parent=self,
+                                                     minvalue=0)
         while self.coinshavesolo is None:
-            self.coinshavesolo = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)
-        self.solocoinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=1000)
+            self.coinshavesolo = simpledialog.askinteger("COINS HAVE",
+                                                         "How many coins do you have?",
+                                                         parent=self,
+                                                         minvalue=0)
+        self.solocoinsperday = simpledialog.askinteger("COINS PER DAY",
+                                                       "How many coins do you get per day?",
+                                                       parent=self,
+                                                       minvalue=1,
+                                                       maxvalue=1000)
         while self.solocoinsperday is None:
-            self.solocoinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=1000)
+            self.solocoinsperday = simpledialog.askinteger("COINS PER DAY",
+                                                           "How many coins do you get per day?",
+                                                           parent=self,
+                                                           minvalue=1,
+                                                           maxvalue=1000)
         diffsolo1 = self.solo1 - self.coinshavesolo
-        msg.showinfo("DAYS YOU NEED", "You need "+str(diffsolo1//self.solocoinsperday)+" days to get "+str(self.solo1)+" from "+str(self.coinshavesolo)+" earning " +str(self.solocoinsperday)+" coins per day.")
+        msg.showinfo("DAYS YOU NEED", "You need "+str(diffsolo1//self.solocoinsperday)+
+                     " days to get "+str(self.solo1)+" from "+str(self.coinshavesolo)+
+                     " earning " +str(self.solocoinsperday)+" coins per day.")
     def coins_have_user_input(self):
         """ coins have user input """
-        self.coinshave = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)
+        self.coinshave = simpledialog.askinteger("COINS HAVE",
+                                                 "How many coins do you have?",
+                                                 parent=self,
+                                                 minvalue=0)
         while self.coinshave is None:
             self.coinshave = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)   
     def coins_get_user_input(self):
