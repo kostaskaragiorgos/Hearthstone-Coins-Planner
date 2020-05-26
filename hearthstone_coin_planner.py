@@ -33,7 +33,7 @@ def aboutmenu():
                  "Version: 2.0\n"+"Credits:Kostas karagiorgos\n"
                  +"Hearthstone is a card game from Blizzard\n"+
                  "Hearthstone official site:https://playhearthstone.com/en-us/")
-class coin_planner(tk.Tk):
+class CoinPlanner(tk.Tk):
     """ coin_planner class """
     def __init__(self):
         super().__init__()
@@ -127,17 +127,34 @@ class coin_planner(tk.Tk):
                                                  parent=self,
                                                  minvalue=0)
         while self.coinshave is None:
-            self.coinshave = simpledialog.askinteger("COINS HAVE", "How many coins do you have?", parent=self, minvalue=0)   
+            self.coinshave = simpledialog.askinteger("COINS HAVE",
+                                                     "How many coins do you have?",
+                                                     parent=self,
+                                                     minvalue=0)   
     def coins_get_user_input(self):
         """ coins to reach """
-        self.coinsget = simpledialog.askinteger("COINS REACH", "How many coins do you want to reach?", parent=self, minvalue=self.coinshave+1)
+        self.coinsget = simpledialog.askinteger("COINS REACH",
+                                                "How many coins do you want to reach?",
+                                                parent=self,
+                                                minvalue=self.coinshave+1)
         while self.coinsget is None:
-            self.coinsget = simpledialog.askinteger("COINS REACH", "How many coins do you want to reach?", parent=self, minvalue=self.coinshave+1)
+            self.coinsget = simpledialog.askinteger("COINS REACH",
+                                                    "How many coins do you want to reach?",
+                                                    parent=self,
+                                                    minvalue=self.coinshave+1)
     def coins_per_day_user_input(self):
         """ coins per day """
-        self.coinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=self.coinsget-self.coinshave)
+        self.coinsperday = simpledialog.askinteger("COINS PER DAY",
+                                                   "How many coins do you get per day?",
+                                                   parent=self,
+                                                   minvalue=1,
+                                                   maxvalue=self.coinsget-self.coinshave)
         while self.coinsperday is None:
-            self.coinsperday = simpledialog.askinteger("COINS PER DAY", "How many coins do you get per day?", parent=self, minvalue=1, maxvalue=self.coinsget-self.coinshave)
+            self.coinsperday = simpledialog.askinteger("COINS PER DAY",
+                                                       "How many coins do you get per day?",
+                                                       parent=self,
+                                                       minvalue=1,
+                                                       maxvalue=self.coinsget-self.coinshave)
     def coin_plan_user_input(self):
         """ coin plan """
         self.coins_have_user_input()
@@ -147,13 +164,29 @@ class coin_planner(tk.Tk):
         """ coin plan save to csv """
         with open('planning.csv', 'a+') as d:
             thewriter = csv.writer(d)
-            thewriter.writerow([str(self.coinshave), str(self.coinsget), str(self.coinsperday), str((self.coinsget - self.coinshave)//self.coinsperday)])
+            thewriter.writerow([str(self.coinshave),
+                                str(self.coinsget),
+                                str(self.coinsperday),
+                                str((self.coinsget - self.coinshave)//self.coinsperday)])
     def coin_plan_pop_up(self):
+        """ shows the days you need to collect the coins"""
         if self.daydiff.days > 0:
             if  (self.coinsget - self.coinshave) > self.daydiff:
-                msg.showinfo("DAYS YOU NEED", "You need "+str((self.coinsget - self.coinshave)//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.You will not be able to collect the coins you want on time for the new expansion.")
+                msg.showinfo("DAYS YOU NEED",
+                             "You need "+
+                             str((self.coinsget - self.coinshave)//self.coinsperday)+
+                             " days to get "+str(self.coinsget)+
+                             " from "+str(self.coinshave)+
+                             " earning " +str(self.coinsperday)+
+                             " coins per day.You will not be able to collect the coins"+
+                             " you want on time for the new expansion.")
         else:
-            msg.showinfo("DAYS YOU NEED", "You need "+str((self.coinsget - self.coinshave)//self.coinsperday)+" days to get "+str(self.coinsget)+" from "+str(self.coinshave)+" earning " +str(self.coinsperday)+" coins per day.")
+            msg.showinfo("DAYS YOU NEED",
+                         "You need "+
+                         str((self.coinsget - self.coinshave)//self.coinsperday)+
+                         " days to get "+str(self.coinsget)+
+                         " from "+str(self.coinshave)+
+                         " earning " +str(self.coinsperday)+" coins per day.")
     def coin_plan(self):
         """ coin plan """
         self.coin_plan_user_input()
@@ -168,13 +201,15 @@ class coin_planner(tk.Tk):
         if self.daydiff.days < 0:
             msg.showinfo("Release Date", "The new expansion has not been announced")
         else:
-            msg.showinfo("NEXT EXPANSION RELEASE DATE", "THE NEXT EXPANSION SAVIORS OF ULDUM WILL BE LIVE AT 06/09/2019")
+            msg.showinfo("NEXT EXPANSION RELEASE DATE",
+                         "THE NEXT EXPANSION SAVIORS OF ULDUM WILL BE LIVE AT 06/09/2019")
     def difdays(self):
         """ release date difference"""
         if self.daydiff.days < 0:
             msg.showinfo("Release Date", "The new expansion has not been announced")
         else:
-            msg.showinfo("Release Date Difference", "There are "+str(self.daydiff.days)+" days until the expansion release")
+            msg.showinfo("Release Date Difference",
+                         "There are "+str(self.daydiff.days)+" days until the expansion release")
 if __name__ == "__main__":
-    cp = coin_planner()
+    cp = CoinPlanner()
     cp.mainloop()
