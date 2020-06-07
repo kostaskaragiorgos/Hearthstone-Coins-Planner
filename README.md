@@ -43,6 +43,8 @@ To install the dependencies
   <li> second way to install pandas ( pip install pandas) </li>
 </ul>
 
+or run
+
 ```shell
 pip install -r requirements.txt
 ```
