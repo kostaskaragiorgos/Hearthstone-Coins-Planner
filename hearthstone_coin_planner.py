@@ -136,12 +136,12 @@ class CoinPlanner(tk.Tk):
         self.coinsget = simpledialog.askinteger("COINS REACH",
                                                 "How many coins do you want to reach?",
                                                 parent=self,
-                                                minvalue=self.coinshave+1)
+                                                minvalue=self.coinshave+1, maxvalue=1_000_000)
         while self.coinsget is None:
             self.coinsget = simpledialog.askinteger("COINS REACH",
                                                     "How many coins do you want to reach?",
                                                     parent=self,
-                                                    minvalue=self.coinshave+1)
+                                                    minvalue=self.coinshave+1, maxvalue=1_000_000)
     def coins_per_day_user_input(self):
         """ coins per day """
         self.coinsperday = simpledialog.askinteger("COINS PER DAY",
