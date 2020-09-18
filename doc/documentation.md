@@ -54,6 +54,8 @@ an imformative message pops up
 
 # Help menu
 
+## Help
+
 You can show info about the app by using menu Help --> Help or using Alt+F1 keybind
 
 <p><img src="doc images/help/help menu.png" title="help menu"/></p>
@@ -61,3 +63,13 @@ You can show info about the app by using menu Help --> Help or using Alt+F1 keyb
 An informative message pops up
 
 <p><img src="doc images/help/help.png" title="help"/></p> 
+
+## About 
+
+You can show info about the app by using menu Help --> About or using Ctrl+i keybind
+
+<p><img src="doc images/about/about menu.png" title="about menu"/></p>
+
+An informative message pops up
+
+<p><img src="doc images/About menu/about.png" title="about menu"/></p> 
