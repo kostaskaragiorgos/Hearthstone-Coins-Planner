@@ -72,4 +72,4 @@ You can show info about the app by using menu Help --> About or using Ctrl+i key
 
 An informative message pops up
 
-<p><img src="doc images/About menu/about.png" title="about menu"/></p> 
+<p><img src="doc images/about/about.png" title="about menu"/></p> 
